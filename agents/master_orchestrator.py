@@ -315,7 +315,7 @@ async def main():
     
     print("\n[WORKFLOWS] Orchestration Workflows:")
     print("-" * 50)
-    print("[1] Continuous Improvement - Quality → Performance → Security")
+    print("[1] Continuous Improvement - Quality -> Performance -> Security")
     print("[2] System Health - Continuous monitoring")
     print("[3] Security Audit - Parallel security + quality")
     print("[4] Performance Optimization - Parallel performance + monitor")
