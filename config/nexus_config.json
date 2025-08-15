@@ -1,0 +1,78 @@
+{
+  "system": {
+    "name": "NEXUS-RSI",
+    "version": "1.0.0",
+    "mode": "production",
+    "auto_approve": true,
+    "continuous_execution": true
+  },
+  "performance": {
+    "auto_patch_interval": 15,
+    "benchmark_interval": 60,
+    "parallel_agents": 10,
+    "max_workers": 20,
+    "batch_size": 100,
+    "timeout": 600,
+    "retry_count": 3
+  },
+  "thresholds": {
+    "kill_threshold": 0.3,
+    "patch_threshold": 0.7,
+    "scale_threshold": 0.9,
+    "memory_limit": 8192,
+    "cpu_limit": 80
+  },
+  "monitoring": {
+    "dashboard_port": 8501,
+    "metrics_port": 9090,
+    "log_level": "INFO",
+    "alert_webhook": "",
+    "retention_days": 30
+  },
+  "scraping": {
+    "sources": {
+      "github": true,
+      "arxiv": true,
+      "reddit": true,
+      "hackernews": true,
+      "twitter": false,
+      "discord": false
+    },
+    "interval_minutes": 15,
+    "max_items_per_source": 100,
+    "cache_size_mb": 500
+  },
+  "agents": {
+    "critic": {
+      "enabled": true,
+      "model": "gpt-4",
+      "temperature": 0.3,
+      "max_tokens": 2000
+    },
+    "meta": {
+      "enabled": true,
+      "model": "gpt-4",
+      "temperature": 0.5,
+      "max_tokens": 2000
+    },
+    "veille": {
+      "enabled": true,
+      "model": "gpt-3.5-turbo",
+      "temperature": 0.7,
+      "max_tokens": 1000
+    },
+    "devops": {
+      "enabled": true,
+      "model": "gpt-3.5-turbo",
+      "temperature": 0.4,
+      "max_tokens": 1500
+    }
+  },
+  "deployment": {
+    "auto_deploy": true,
+    "rollback_on_failure": true,
+    "canary_percentage": 10,
+    "health_check_interval": 30,
+    "max_replicas": 5
+  }
+}
