@@ -1,0 +1,437 @@
+{
+  "agent_metadata": {
+    "name": "nexus-system-monitor",
+    "version": "1.0.0",
+    "model": "haiku",
+    "specialization": "Real-time system monitoring and alerting",
+    "description": "Advanced system monitor for NEXUS-RSI infrastructure focusing on service health, resource utilization, and automated recovery"
+  },
+  "primary_focus": {
+    "service_health_monitoring": {
+      "services": [
+        "ollama",
+        "neo4j", 
+        "temporal",
+        "grafana",
+        "prometheus",
+        "docker_daemon",
+        "nexus_core",
+        "nexus_dashboard"
+      ],
+      "health_check_interval": 30,
+      "failure_detection_timeout": 60,
+      "service_dependency_mapping": true
+    },
+    "github_actions_monitoring": {
+      "workflow_status_tracking": true,
+      "build_failure_detection": true,
+      "deployment_pipeline_monitoring": true,
+      "webhook_integration": true,
+      "failure_notification": true
+    },
+    "resource_utilization_tracking": {
+      "metrics": ["cpu", "memory", "disk", "network", "gpu"],
+      "collection_interval": 10,
+      "trend_analysis": true,
+      "capacity_planning": true,
+      "anomaly_detection": true
+    },
+    "error_detection_alerting": {
+      "log_parsing": true,
+      "error_pattern_recognition": true,
+      "cascade_failure_prevention": true,
+      "severity_classification": true,
+      "escalation_policies": true
+    },
+    "uptime_availability_monitoring": {
+      "sla_tracking": true,
+      "downtime_analysis": true,
+      "availability_reporting": true,
+      "mttr_calculation": true,
+      "mtbf_tracking": true
+    }
+  },
+  "capabilities": {
+    "docker_container_health_checks": {
+      "enabled": true,
+      "check_interval": 30,
+      "health_endpoints": {
+        "ollama": "http://localhost:11434/api/version",
+        "neo4j": "http://localhost:7474/db/data/",
+        "temporal": "http://localhost:8088/health",
+        "grafana": "http://localhost:3000/api/health",
+        "prometheus": "http://localhost:9090/-/healthy"
+      },
+      "container_stats_monitoring": true,
+      "resource_limit_tracking": true,
+      "restart_policy_enforcement": true
+    },
+    "process_monitoring_restart": {
+      "enabled": true,
+      "monitored_processes": [
+        "nexus_core.py",
+        "nexus_dashboard.py",
+        "auto_patcher.py",
+        "multi_source_scraper.py"
+      ],
+      "auto_restart": true,
+      "restart_attempts": 3,
+      "backoff_strategy": "exponential",
+      "process_memory_limits": {
+        "nexus_core.py": "2GB",
+        "nexus_dashboard.py": "1GB",
+        "auto_patcher.py": "512MB",
+        "multi_source_scraper.py": "1GB"
+      }
+    },
+    "log_aggregation_analysis": {
+      "enabled": true,
+      "log_sources": [
+        "C:\\Users\\Jean-SamuelLeboeuf\\AppData\\Local\\Ollama\\*.log",
+        "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\*.log",
+        "docker_container_logs",
+        "windows_event_logs"
+      ],
+      "log_parsing_rules": {
+        "error_patterns": ["ERROR", "FATAL", "EXCEPTION", "TRACEBACK"],
+        "warning_patterns": ["WARN", "WARNING", "DEPRECATED"],
+        "performance_patterns": ["SLOW", "TIMEOUT", "LATENCY"]
+      },
+      "real_time_parsing": true,
+      "log_retention_days": 30
+    },
+    "metric_collection_storage": {
+      "enabled": true,
+      "metrics_database": "nexus_metrics.db",
+      "collection_agents": {
+        "system_metrics": {
+          "cpu_usage": true,
+          "memory_usage": true,
+          "disk_io": true,
+          "network_io": true,
+          "gpu_usage": true
+        },
+        "application_metrics": {
+          "response_times": true,
+          "error_rates": true,
+          "throughput": true,
+          "queue_depths": true,
+          "connection_pools": true
+        },
+        "infrastructure_metrics": {
+          "container_stats": true,
+          "service_uptime": true,
+          "database_performance": true,
+          "workflow_execution_times": true
+        }
+      },
+      "metric_aggregation": {
+        "real_time": "1s",
+        "short_term": "1m", 
+        "medium_term": "1h",
+        "long_term": "1d"
+      }
+    },
+    "alert_generation_routing": {
+      "enabled": true,
+      "alert_channels": [
+        "console_output",
+        "log_file",
+        "prometheus_alertmanager",
+        "grafana_notifications",
+        "windows_notifications"
+      ],
+      "alert_rules": {
+        "service_down": {
+          "severity": "critical",
+          "threshold": "service_unavailable",
+          "cooldown": 300
+        },
+        "high_resource_usage": {
+          "severity": "warning",
+          "cpu_threshold": 80,
+          "memory_threshold": 85,
+          "disk_threshold": 90,
+          "cooldown": 600
+        },
+        "error_rate_spike": {
+          "severity": "major",
+          "error_rate_threshold": 10,
+          "time_window": 300,
+          "cooldown": 300
+        },
+        "performance_degradation": {
+          "severity": "minor",
+          "response_time_threshold": 5000,
+          "throughput_degradation": 50,
+          "cooldown": 900
+        }
+      },
+      "escalation_matrix": {
+        "critical": ["immediate_notification", "auto_recovery"],
+        "major": ["notification", "manual_intervention"],
+        "warning": ["log_entry", "metric_tracking"],
+        "minor": ["metric_tracking"]
+      }
+    }
+  },
+  "triggers": {
+    "service_health_triggers": {
+      "service_down_detection": {
+        "check_frequency": 30,
+        "failure_threshold": 3,
+        "recovery_verification": 5
+      },
+      "performance_degradation": {
+        "response_time_increase": 200,
+        "throughput_decrease": 30,
+        "error_rate_increase": 5
+      }
+    },
+    "resource_threshold_triggers": {
+      "cpu_usage": {
+        "warning": 70,
+        "critical": 85,
+        "sustained_duration": 300
+      },
+      "memory_usage": {
+        "warning": 75,
+        "critical": 90,
+        "sustained_duration": 180
+      },
+      "disk_usage": {
+        "warning": 80,
+        "critical": 95,
+        "sustained_duration": 60
+      },
+      "network_saturation": {
+        "warning": 80,
+        "critical": 95,
+        "sustained_duration": 120
+      }
+    },
+    "error_spike_triggers": {
+      "error_rate_threshold": 10,
+      "time_window": 300,
+      "consecutive_failures": 5,
+      "cascade_detection": true
+    },
+    "workflow_failure_triggers": {
+      "github_actions_failure": true,
+      "temporal_workflow_failure": true,
+      "deployment_failure": true,
+      "build_failure": true
+    }
+  },
+  "integration": {
+    "nexus_rsi_services": {
+      "monitor_services": [
+        "ollama",
+        "neo4j",
+        "temporal", 
+        "grafana",
+        "prometheus"
+      ],
+      "service_dependencies": {
+        "nexus_core": ["ollama", "neo4j"],
+        "nexus_dashboard": ["prometheus", "grafana"],
+        "auto_patcher": ["temporal"],
+        "scrapers": ["neo4j"]
+      },
+      "auto_recovery_enabled": true,
+      "recovery_strategies": {
+        "service_restart": ["docker restart", "process restart"],
+        "resource_cleanup": ["memory cleanup", "disk cleanup"],
+        "dependency_check": ["network connectivity", "port availability"]
+      }
+    },
+    "github_actions_integration": {
+      "webhook_endpoint": "http://localhost:8501/webhooks/github",
+      "monitored_workflows": [
+        "CI/CD Pipeline",
+        "Deploy to Production", 
+        "Security Scan",
+        "Performance Tests"
+      ],
+      "failure_response": {
+        "notification": true,
+        "log_analysis": true,
+        "automatic_retry": false,
+        "rollback_detection": true
+      }
+    },
+    "grafana_dashboard_integration": {
+      "dashboard_url": "http://localhost:3000",
+      "api_key_required": false,
+      "custom_dashboards": [
+        "NEXUS System Overview",
+        "Service Health Status",
+        "Resource Utilization",
+        "Error Tracking",
+        "Performance Metrics"
+      ],
+      "alert_integration": true,
+      "annotation_support": true
+    },
+    "metrics_database_integration": {
+      "database_path": "nexus_metrics.db",
+      "connection_pool_size": 10,
+      "batch_insert_size": 1000,
+      "retention_policy": {
+        "raw_metrics": "7d",
+        "aggregated_1m": "30d",
+        "aggregated_1h": "90d",
+        "aggregated_1d": "1y"
+      },
+      "backup_strategy": {
+        "frequency": "daily",
+        "retention": "30d",
+        "compression": true
+      }
+    },
+    "auto_recovery_mechanisms": {
+      "enabled": true,
+      "recovery_actions": {
+        "service_restart": {
+          "docker_containers": true,
+          "windows_services": true,
+          "processes": true
+        },
+        "resource_cleanup": {
+          "memory_cleanup": true,
+          "temp_file_cleanup": true,
+          "log_rotation": true
+        },
+        "dependency_validation": {
+          "network_connectivity": true,
+          "port_availability": true,
+          "file_system_access": true
+        }
+      },
+      "recovery_validation": {
+        "health_check_post_recovery": true,
+        "performance_verification": true,
+        "dependency_verification": true
+      },
+      "recovery_limits": {
+        "max_restart_attempts": 3,
+        "cooldown_period": 300,
+        "escalation_threshold": 5
+      }
+    }
+  },
+  "monitoring_configuration": {
+    "real_time_monitoring": {
+      "enabled": true,
+      "update_interval": 5,
+      "display_format": "console_dashboard",
+      "metrics_display": [
+        "service_status",
+        "resource_usage",
+        "error_counts",
+        "response_times"
+      ]
+    },
+    "historical_tracking": {
+      "enabled": true,
+      "data_retention": "90d",
+      "trend_analysis": true,
+      "pattern_recognition": true,
+      "predictive_analytics": false
+    },
+    "alert_configuration": {
+      "alert_aggregation": true,
+      "duplicate_suppression": true,
+      "alert_routing": {
+        "critical": ["console", "log", "notification"],
+        "major": ["console", "log"],
+        "warning": ["log"],
+        "info": ["log"]
+      },
+      "notification_channels": {
+        "console": true,
+        "log_file": true,
+        "windows_toast": true,
+        "prometheus_alertmanager": false
+      }
+    }
+  },
+  "performance_optimization": {
+    "monitoring_overhead": {
+      "max_cpu_usage": 5,
+      "max_memory_usage": "256MB",
+      "batch_processing": true,
+      "async_operations": true
+    },
+    "data_collection": {
+      "sampling_rate": "adaptive",
+      "compression": true,
+      "aggregation": true,
+      "filtering": true
+    },
+    "storage_optimization": {
+      "database_indexing": true,
+      "data_compression": true,
+      "archival_policy": true,
+      "cleanup_automation": true
+    }
+  },
+  "reporting": {
+    "system_health_reports": {
+      "frequency": "daily",
+      "format": ["json", "html"],
+      "metrics_included": [
+        "uptime_statistics",
+        "performance_metrics", 
+        "error_summary",
+        "resource_utilization",
+        "alert_summary"
+      ],
+      "trend_analysis": true,
+      "recommendations": true
+    },
+    "incident_reports": {
+      "auto_generation": true,
+      "incident_correlation": true,
+      "root_cause_analysis": true,
+      "recovery_documentation": true,
+      "lessons_learned": true
+    },
+    "sla_reporting": {
+      "availability_tracking": true,
+      "performance_sla": true,
+      "incident_impact": true,
+      "compliance_reporting": true
+    }
+  },
+  "configuration": {
+    "agent_settings": {
+      "model_temperature": 0.1,
+      "max_tokens": 2000,
+      "context_window": 4096,
+      "timeout_seconds": 120,
+      "retry_attempts": 3
+    },
+    "monitoring_settings": {
+      "check_interval": 30,
+      "alert_cooldown": 300,
+      "max_concurrent_checks": 10,
+      "batch_size": 100,
+      "timeout_threshold": 60
+    },
+    "storage_settings": {
+      "metrics_database": "nexus_metrics.db",
+      "log_directory": "logs/system_monitor",
+      "backup_directory": "backups/system_monitor",
+      "max_log_size": "100MB",
+      "log_rotation": true
+    },
+    "safety_settings": {
+      "auto_recovery_enabled": true,
+      "max_recovery_attempts": 3,
+      "human_approval_required": false,
+      "critical_system_protection": true,
+      "rollback_capability": true
+    }
+  }
+}

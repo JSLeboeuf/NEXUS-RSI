@@ -1,0 +1,387 @@
+{
+  "agent_metadata": {
+    "name": "nexus-code-quality",
+    "version": "1.0.0",
+    "model": "sonnet",
+    "specialization": "Code quality, maintainability, and technical debt analysis",
+    "description": "Advanced code quality analyzer for NEXUS-RSI system focusing on maintainability metrics, technical debt quantification, and refactoring recommendations"
+  },
+  "primary_focus": {
+    "code_complexity_analysis": {
+      "cyclomatic_complexity": {
+        "enabled": true,
+        "threshold": 10,
+        "tools": ["radon", "mccabe"],
+        "analysis_scope": ["functions", "classes", "modules"]
+      },
+      "cognitive_complexity": {
+        "enabled": true,
+        "threshold": 15,
+        "analysis_depth": "deep",
+        "cognitive_load_factors": ["nesting", "structural", "functional"]
+      },
+      "halstead_metrics": {
+        "enabled": true,
+        "volume_threshold": 1000,
+        "difficulty_threshold": 30,
+        "effort_threshold": 50000
+      }
+    },
+    "maintainability_index": {
+      "calculation_method": "microsoft_variant",
+      "threshold": 0.7,
+      "factors": ["complexity", "lines_of_code", "comment_ratio", "halstead_volume"],
+      "normalization": "0_to_1_scale"
+    },
+    "technical_debt_quantification": {
+      "debt_ratio_threshold": 0.05,
+      "sqale_methodology": true,
+      "debt_categories": [
+        "reliability",
+        "security", 
+        "maintainability",
+        "performance",
+        "portability"
+      ],
+      "remediation_cost_model": "linear_time_estimation"
+    },
+    "code_duplication_detection": {
+      "threshold_percent": 10,
+      "minimum_clone_size": 30,
+      "similarity_algorithms": ["token_based", "tree_based", "metric_based"],
+      "exact_duplicates": true,
+      "near_duplicates": true
+    }
+  },
+  "capabilities": {
+    "python_code_quality": {
+      "pylint_integration": {
+        "enabled": true,
+        "config_file": ".pylintrc",
+        "score_threshold": 8.0,
+        "categories": ["convention", "refactor", "warning", "error", "fatal"],
+        "custom_rules": ["docstring_coverage", "type_annotations", "naming_conventions"]
+      },
+      "flake8_integration": {
+        "enabled": true,
+        "config_file": "setup.cfg",
+        "max_line_length": 88,
+        "max_complexity": 10,
+        "ignore_patterns": ["E203", "W503"],
+        "plugins": ["flake8-docstrings", "flake8-import-order", "flake8-annotations"]
+      },
+      "black_formatting": {
+        "enabled": true,
+        "check_only": true,
+        "line_length": 88,
+        "target_versions": ["py38", "py39", "py310", "py311"],
+        "skip_string_normalization": false
+      },
+      "mypy_type_checking": {
+        "enabled": true,
+        "config_file": "mypy.ini",
+        "strict_mode": true,
+        "check_untyped_defs": true,
+        "disallow_incomplete_defs": true
+      }
+    },
+    "complexity_analysis": {
+      "radon_metrics": {
+        "enabled": true,
+        "complexity_types": ["cyclomatic", "raw", "maintainability"],
+        "output_format": "json",
+        "min_complexity": "B"
+      },
+      "mccabe_complexity": {
+        "enabled": true,
+        "max_complexity": 10,
+        "show_complex_functions": true,
+        "detailed_output": true
+      },
+      "cognitive_complexity": {
+        "enabled": true,
+        "implementation": "sonarqube_variant",
+        "threshold": 15,
+        "increment_rules": {
+          "if_elif_else": 1,
+          "switch_case": 1,
+          "for_while": 1,
+          "try_catch": 1,
+          "break_continue": 1,
+          "nested_increment": 1
+        }
+      }
+    },
+    "documentation_coverage": {
+      "docstring_analyzer": {
+        "enabled": true,
+        "minimum_coverage": 80,
+        "required_sections": ["summary", "parameters", "returns", "raises"],
+        "style_guide": "google",
+        "check_private_functions": false
+      },
+      "comment_analysis": {
+        "enabled": true,
+        "comment_to_code_ratio": 0.2,
+        "inline_comment_analysis": true,
+        "todo_fixme_tracking": true
+      },
+      "api_documentation": {
+        "enabled": true,
+        "coverage_threshold": 90,
+        "formats": ["sphinx", "mkdocs"],
+        "auto_generation": true
+      }
+    },
+    "dead_code_detection": {
+      "unused_imports": {
+        "enabled": true,
+        "tools": ["unimport", "autoflake"],
+        "exclude_patterns": ["__init__.py", "conftest.py"]
+      },
+      "unused_variables": {
+        "enabled": true,
+        "scope_analysis": ["function", "class", "module"],
+        "ignore_underscore_vars": true
+      },
+      "unreachable_code": {
+        "enabled": true,
+        "analysis_method": "control_flow_graph",
+        "detect_after_return": true,
+        "detect_after_raise": true
+      },
+      "unused_functions_classes": {
+        "enabled": true,
+        "entry_point_analysis": true,
+        "cross_module_analysis": true,
+        "exclude_test_files": true
+      }
+    },
+    "test_coverage_analysis": {
+      "coverage_tools": {
+        "pytest_cov": {
+          "enabled": true,
+          "minimum_coverage": 80,
+          "fail_under": 80,
+          "branch_coverage": true,
+          "exclude_patterns": ["tests/*", "*/migrations/*"]
+        },
+        "coverage_py": {
+          "enabled": true,
+          "config_file": ".coveragerc",
+          "data_file": ".coverage",
+          "parallel": true
+        }
+      },
+      "coverage_reporting": {
+        "formats": ["term", "html", "xml", "json"],
+        "output_directory": "htmlcov",
+        "show_missing": true,
+        "skip_covered": false
+      },
+      "mutation_testing": {
+        "enabled": false,
+        "tool": "mutpy",
+        "minimum_score": 70,
+        "operators": ["aor", "aod", "cor", "cod", "lcr", "lod"]
+      }
+    }
+  },
+  "triggers": {
+    "quality_thresholds": {
+      "code_quality_score": 0.7,
+      "maintainability_index": 0.7,
+      "complexity_threshold": 10,
+      "duplication_threshold": 10,
+      "test_coverage_threshold": 80,
+      "technical_debt_ratio": 0.05
+    },
+    "monitoring_intervals": {
+      "continuous_analysis": 30,
+      "deep_quality_scan": 300,
+      "trend_analysis": 1800,
+      "comprehensive_report": 86400
+    },
+    "alert_conditions": {
+      "quality_degradation": {
+        "enabled": true,
+        "threshold_drop": 0.1,
+        "consecutive_failures": 3
+      },
+      "complexity_spike": {
+        "enabled": true,
+        "relative_increase": 0.2,
+        "absolute_threshold": 15
+      },
+      "coverage_drop": {
+        "enabled": true,
+        "threshold_drop": 5,
+        "critical_threshold": 70
+      },
+      "debt_accumulation": {
+        "enabled": true,
+        "rate_threshold": 0.02,
+        "absolute_threshold": 0.1
+      }
+    }
+  },
+  "integration": {
+    "nexus_rsi": {
+      "metrics_database": {
+        "table_name": "code_quality_metrics",
+        "connection_pool_size": 5,
+        "query_timeout": 30,
+        "batch_insert_size": 100,
+        "retention_days": 365
+      },
+      "rsi_loop_integration": {
+        "analyze_per_iteration": true,
+        "quality_gate_enforcement": true,
+        "auto_improvement_triggers": true,
+        "feedback_loop_optimization": true
+      },
+      "auto_patcher_integration": {
+        "quality_driven_patches": true,
+        "refactoring_recommendations": true,
+        "complexity_reduction_patches": true,
+        "code_cleanup_automation": true,
+        "validation_after_patches": true
+      },
+      "dashboard_integration": {
+        "real_time_quality_metrics": true,
+        "quality_trend_visualization": true,
+        "hotspot_identification": true,
+        "technical_debt_tracking": true
+      }
+    }
+  },
+  "refactoring_recommendations": {
+    "complexity_reduction": {
+      "extract_method": {
+        "enabled": true,
+        "min_lines": 10,
+        "complexity_threshold": 5
+      },
+      "extract_class": {
+        "enabled": true,
+        "responsibility_threshold": 3,
+        "cohesion_analysis": true
+      },
+      "simplify_conditionals": {
+        "enabled": true,
+        "nested_threshold": 3,
+        "boolean_expression_complexity": 5
+      }
+    },
+    "design_patterns": {
+      "strategy_pattern": {
+        "detect_switch_statements": true,
+        "conditional_complexity_threshold": 8
+      },
+      "factory_pattern": {
+        "detect_object_creation": true,
+        "creation_complexity_threshold": 5
+      },
+      "observer_pattern": {
+        "detect_callback_chains": true,
+        "coupling_analysis": true
+      }
+    },
+    "code_smells_detection": {
+      "long_method": {
+        "line_threshold": 50,
+        "complexity_threshold": 10
+      },
+      "large_class": {
+        "line_threshold": 500,
+        "method_threshold": 20,
+        "responsibility_threshold": 5
+      },
+      "god_object": {
+        "dependency_threshold": 10,
+        "method_threshold": 30,
+        "complexity_score_threshold": 100
+      },
+      "feature_envy": {
+        "external_calls_threshold": 5,
+        "cohesion_analysis": true
+      }
+    }
+  },
+  "reporting": {
+    "quality_reports": {
+      "frequency": "daily",
+      "formats": ["json", "html", "pdf", "markdown"],
+      "sections": [
+        "executive_summary",
+        "quality_metrics",
+        "complexity_analysis", 
+        "technical_debt",
+        "test_coverage",
+        "refactoring_recommendations",
+        "trend_analysis"
+      ],
+      "stakeholder_versions": {
+        "technical": "detailed",
+        "management": "summary", 
+        "product": "impact_focused"
+      }
+    },
+    "quality_gates": {
+      "pre_commit_checks": {
+        "enabled": true,
+        "blocking_issues": ["high_complexity", "low_coverage", "style_violations"],
+        "warning_issues": ["moderate_complexity", "missing_docs", "code_smells"]
+      },
+      "ci_cd_integration": {
+        "quality_thresholds": true,
+        "build_failure_conditions": ["critical_debt", "severe_violations"],
+        "quality_trend_enforcement": true
+      }
+    },
+    "metrics_tracking": {
+      "historical_trends": {
+        "quality_score_evolution": true,
+        "complexity_trends": true,
+        "debt_accumulation_rate": true,
+        "coverage_trends": true
+      },
+      "benchmarking": {
+        "industry_standards": true,
+        "team_averages": true,
+        "project_history": true,
+        "similar_projects": true
+      }
+    }
+  },
+  "configuration": {
+    "agent_settings": {
+      "model_temperature": 0.2,
+      "max_tokens": 4000,
+      "context_window": 8192,
+      "timeout_seconds": 300,
+      "analysis_depth": "comprehensive"
+    },
+    "quality_settings": {
+      "analysis_scope": ["src", "lib", "modules", "agents"],
+      "exclude_patterns": ["tests", "migrations", "vendor", "__pycache__"],
+      "file_extensions": [".py"],
+      "max_file_size_mb": 10,
+      "parallel_analysis": true,
+      "cache_results": true
+    },
+    "reporting_settings": {
+      "output_directory": "quality_reports",
+      "report_retention_days": 90,
+      "notification_channels": ["email", "slack", "webhook"],
+      "severity_levels": ["info", "warning", "error", "critical"]
+    },
+    "automation_settings": {
+      "auto_fix_enabled": false,
+      "suggestion_only": true,
+      "require_approval": true,
+      "backup_before_changes": true,
+      "rollback_on_failure": true
+    }
+  }
+}

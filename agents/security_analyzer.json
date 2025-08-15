@@ -1,0 +1,348 @@
+{
+  "agent_metadata": {
+    "name": "nexus-security-analyzer",
+    "version": "1.0.0",
+    "model": "opus",
+    "thinking_mode": true,
+    "specialization": "Security vulnerability analysis and threat modeling",
+    "description": "Advanced security analyzer for NEXUS-RSI system focusing on vulnerability scanning, threat modeling, and automated security hardening"
+  },
+  "primary_focus": {
+    "vulnerability_scanning": {
+      "python_code": {
+        "static_analysis": true,
+        "dependency_scanning": true,
+        "code_injection_detection": true,
+        "sql_injection_detection": true,
+        "xss_detection": true,
+        "secrets_detection": true
+      },
+      "api_endpoints": {
+        "authentication_bypass": true,
+        "authorization_flaws": true,
+        "input_validation": true,
+        "rate_limiting": true,
+        "cors_misconfiguration": true
+      },
+      "docker_containers": {
+        "base_image_vulnerabilities": true,
+        "privilege_escalation": true,
+        "exposed_ports": true,
+        "secrets_in_layers": true,
+        "rootless_containers": true
+      },
+      "database_security": {
+        "sql_injection": true,
+        "privilege_escalation": true,
+        "data_encryption": true,
+        "access_controls": true,
+        "audit_logging": true
+      }
+    },
+    "threat_modeling": {
+      "attack_surface_analysis": true,
+      "data_flow_analysis": true,
+      "trust_boundary_identification": true,
+      "threat_enumeration": true,
+      "risk_assessment": true
+    },
+    "compliance_checking": {
+      "owasp_top_10": true,
+      "nist_cybersecurity_framework": true,
+      "cis_controls": true,
+      "pci_dss": false,
+      "gdpr_privacy": true,
+      "iso_27001": true
+    }
+  },
+  "capabilities": {
+    "static_code_analysis": {
+      "enabled": true,
+      "tools": ["bandit", "semgrep", "safety", "pip-audit", "trufflehog", "gitleaks"],
+      "custom_rules": true,
+      "severity_levels": ["critical", "high", "medium", "low", "info"],
+      "false_positive_filtering": true
+    },
+    "dependency_vulnerability_scanning": {
+      "enabled": true,
+      "tools": ["safety", "pip-audit", "cyclonedx", "syft"],
+      "sbom_generation": true,
+      "license_compliance": true,
+      "outdated_packages": true,
+      "known_vulnerabilities": true
+    },
+    "container_security": {
+      "enabled": true,
+      "tools": ["trivy", "grype", "clair", "docker-bench"],
+      "image_scanning": true,
+      "runtime_security": true,
+      "compliance_scanning": true,
+      "distroless_recommendations": true
+    },
+    "secrets_detection": {
+      "enabled": true,
+      "tools": ["trufflehog", "gitleaks", "detect-secrets"],
+      "api_keys": true,
+      "database_credentials": true,
+      "certificates": true,
+      "tokens": true,
+      "entropy_analysis": true
+    },
+    "network_security": {
+      "enabled": true,
+      "port_scanning": true,
+      "ssl_tls_analysis": true,
+      "firewall_rules": true,
+      "network_segmentation": true,
+      "intrusion_detection": true
+    },
+    "authentication_security": {
+      "enabled": true,
+      "password_policies": true,
+      "multi_factor_auth": true,
+      "session_management": true,
+      "jwt_security": true,
+      "oauth_security": true
+    }
+  },
+  "triggers": {
+    "security_thresholds": {
+      "security_score_threshold": 0.9,
+      "critical_vulnerabilities": 0,
+      "high_vulnerabilities": 3,
+      "exposed_secrets": 0,
+      "compliance_score": 0.95
+    },
+    "monitoring_intervals": {
+      "real_time_monitoring": 30,
+      "vulnerability_scanning": 3600,
+      "dependency_scanning": 86400,
+      "compliance_checking": 604800,
+      "threat_modeling": 2592000
+    },
+    "alert_conditions": {
+      "new_vulnerabilities": true,
+      "exposed_credentials": true,
+      "suspicious_activity": true,
+      "compliance_violations": true,
+      "attack_indicators": true
+    },
+    "automated_responses": {
+      "block_suspicious_ips": true,
+      "rotate_exposed_secrets": true,
+      "patch_critical_vulns": true,
+      "isolate_compromised_containers": true,
+      "emergency_shutdown": false
+    }
+  },
+  "integration": {
+    "nexus_rsi": {
+      "code_monitoring": {
+        "git_hooks": true,
+        "commit_scanning": true,
+        "pr_analysis": true,
+        "branch_protection": true
+      },
+      "github_actions": {
+        "workflow_security": true,
+        "secrets_management": true,
+        "supply_chain_security": true,
+        "artifact_scanning": true
+      },
+      "ollama_api": {
+        "access_logging": true,
+        "rate_limiting": true,
+        "authentication": true,
+        "input_sanitization": true
+      },
+      "database_security": {
+        "connection_encryption": true,
+        "access_auditing": true,
+        "privilege_monitoring": true,
+        "backup_encryption": true
+      },
+      "auto_patcher_integration": {
+        "security_patches": true,
+        "vulnerability_fixes": true,
+        "hardening_configurations": true,
+        "compliance_updates": true
+      }
+    }
+  },
+  "security_tools": {
+    "static_analysis": {
+      "bandit": {
+        "enabled": true,
+        "config_file": "bandit.yml",
+        "severity": "medium",
+        "confidence": "medium",
+        "exclude_tests": true
+      },
+      "semgrep": {
+        "enabled": true,
+        "rulesets": ["auto", "security", "owasp-top-ten", "cwe-top-25"],
+        "custom_rules": "security_rules/",
+        "exclude_paths": ["tests/", "docs/"]
+      },
+      "pyflakes": {
+        "enabled": true,
+        "check_unused_imports": true,
+        "check_undefined_names": true
+      }
+    },
+    "dependency_scanning": {
+      "safety": {
+        "enabled": true,
+        "database_update": true,
+        "ignore_ids": [],
+        "output_format": "json"
+      },
+      "pip_audit": {
+        "enabled": true,
+        "format": "json",
+        "cache_dir": ".pip_audit_cache",
+        "index_url": "https://pypi.org/simple/"
+      }
+    },
+    "secrets_detection": {
+      "trufflehog": {
+        "enabled": true,
+        "entropy_threshold": 3.0,
+        "regex_timeout": 10,
+        "include_paths": ["*.py", "*.json", "*.yml", "*.yaml"]
+      },
+      "gitleaks": {
+        "enabled": true,
+        "config_file": ".gitleaks.toml",
+        "verbose": true,
+        "exit_code": 1
+      }
+    },
+    "container_security": {
+      "trivy": {
+        "enabled": true,
+        "security_checks": ["vuln", "secret", "config"],
+        "severity": "CRITICAL,HIGH,MEDIUM",
+        "ignore_unfixed": false
+      },
+      "docker_bench": {
+        "enabled": true,
+        "exclude_checks": [],
+        "log_level": "INFO"
+      }
+    }
+  },
+  "security_policies": {
+    "code_security": {
+      "no_hardcoded_secrets": true,
+      "input_validation_required": true,
+      "output_encoding_required": true,
+      "secure_random_generation": true,
+      "cryptographic_standards": true
+    },
+    "dependency_security": {
+      "vulnerability_scanning": true,
+      "license_compliance": true,
+      "supply_chain_verification": true,
+      "automated_updates": false,
+      "manual_review_required": true
+    },
+    "container_security": {
+      "non_root_user": true,
+      "minimal_base_images": true,
+      "no_privileged_containers": true,
+      "readonly_filesystems": true,
+      "network_policies": true
+    },
+    "api_security": {
+      "authentication_required": true,
+      "authorization_enforcement": true,
+      "rate_limiting": true,
+      "input_validation": true,
+      "output_filtering": true
+    }
+  },
+  "reporting": {
+    "security_reports": {
+      "frequency": "daily",
+      "format": ["json", "html", "pdf", "sarif"],
+      "include_remediation": true,
+      "risk_scoring": true,
+      "trend_analysis": true
+    },
+    "vulnerability_reports": {
+      "severity_breakdown": true,
+      "cve_details": true,
+      "affected_components": true,
+      "patch_availability": true,
+      "exploit_availability": true
+    },
+    "compliance_reports": {
+      "framework_coverage": true,
+      "control_implementation": true,
+      "gap_analysis": true,
+      "remediation_roadmap": true,
+      "audit_trail": true
+    },
+    "threat_intelligence": {
+      "ioc_feeds": true,
+      "threat_hunting": true,
+      "attack_patterns": true,
+      "risk_assessment": true,
+      "mitigation_strategies": true
+    }
+  },
+  "remediation": {
+    "automated_fixes": {
+      "dependency_updates": false,
+      "configuration_hardening": true,
+      "secret_rotation": true,
+      "patch_application": false,
+      "manual_approval_required": true
+    },
+    "security_hardening": {
+      "docker_security": true,
+      "api_security": true,
+      "database_security": true,
+      "network_security": true,
+      "access_controls": true
+    },
+    "incident_response": {
+      "automated_isolation": true,
+      "evidence_collection": true,
+      "notification_system": true,
+      "recovery_procedures": true,
+      "lessons_learned": true
+    }
+  },
+  "configuration": {
+    "agent_settings": {
+      "model_temperature": 0.1,
+      "max_tokens": 8000,
+      "context_window": 32768,
+      "timeout_seconds": 600,
+      "thinking_mode": true
+    },
+    "security_settings": {
+      "paranoid_mode": true,
+      "zero_trust": true,
+      "defense_in_depth": true,
+      "principle_of_least_privilege": true,
+      "fail_secure": true
+    },
+    "performance_settings": {
+      "max_concurrent_scans": 3,
+      "scan_timeout": 1800,
+      "cache_results": true,
+      "incremental_scanning": true,
+      "parallel_processing": true
+    },
+    "notification_settings": {
+      "critical_alerts": true,
+      "email_notifications": true,
+      "slack_integration": false,
+      "webhook_urls": [],
+      "escalation_policy": true
+    }
+  }
+}

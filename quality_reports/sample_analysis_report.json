@@ -1,0 +1,139 @@
+{
+  "summary": {
+    "timestamp": "2025-08-14T20:44:58.119016",
+    "total_files": 3,
+    "total_lines_of_code": 496,
+    "average_quality_score": 0.34273747901101137,
+    "average_complexity": 29.333333333333332,
+    "average_test_coverage": 45.0,
+    "analysis_time_seconds": 0
+  },
+  "quality_distribution": {
+    "excellent": 0,
+    "good": 0,
+    "fair": 0,
+    "poor": 3
+  },
+  "issue_summary": {
+    "error": 8,
+    "warning": 4
+  },
+  "recommendations_summary": {
+    "total": 9,
+    "high_priority": 3,
+    "medium_priority": 6,
+    "low_priority": 0
+  },
+  "top_issues": [
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\activate_rsi.py",
+      "type": "low_coverage",
+      "severity": "error",
+      "message": "Test coverage (45.0%) is below threshold",
+      "value": 45.0
+    },
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\launch_nexus.py",
+      "type": "low_coverage",
+      "severity": "error",
+      "message": "Test coverage (45.0%) is below threshold",
+      "value": 45.0
+    },
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\nexus_core.py",
+      "type": "low_coverage",
+      "severity": "error",
+      "message": "Test coverage (45.0%) is below threshold",
+      "value": 45.0
+    },
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\activate_rsi.py",
+      "type": "high_complexity",
+      "severity": "error",
+      "message": "Cyclomatic complexity (41.0) exceeds threshold",
+      "value": 41.0
+    },
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\activate_rsi.py",
+      "type": "high_cognitive_complexity",
+      "severity": "error",
+      "message": "Cognitive complexity (32.0) is too high",
+      "value": 32.0
+    },
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\launch_nexus.py",
+      "type": "high_cognitive_complexity",
+      "severity": "error",
+      "message": "Cognitive complexity (31.0) is too high",
+      "value": 31.0
+    },
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\launch_nexus.py",
+      "type": "high_complexity",
+      "severity": "error",
+      "message": "Cyclomatic complexity (25.0) exceeds threshold",
+      "value": 25.0
+    },
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\nexus_core.py",
+      "type": "high_complexity",
+      "severity": "error",
+      "message": "Cyclomatic complexity (22.0) exceeds threshold",
+      "value": 22.0
+    },
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\nexus_core.py",
+      "type": "high_cognitive_complexity",
+      "severity": "warning",
+      "message": "Cognitive complexity (16.0) is too high",
+      "value": 16.0
+    },
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\launch_nexus.py",
+      "type": "low_maintainability",
+      "severity": "warning",
+      "message": "Maintainability index (0.43) is below threshold",
+      "value": 0.43300000000000005
+    }
+  ],
+  "improvement_opportunities": [
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\activate_rsi.py",
+      "type": "test_coverage",
+      "current_coverage": 45.0,
+      "potential_improvement": 40,
+      "effort": "medium"
+    },
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\launch_nexus.py",
+      "type": "test_coverage",
+      "current_coverage": 45.0,
+      "potential_improvement": 40,
+      "effort": "medium"
+    },
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\nexus_core.py",
+      "type": "test_coverage",
+      "current_coverage": 45.0,
+      "potential_improvement": 40,
+      "effort": "medium"
+    },
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\activate_rsi.py",
+      "type": "complexity_reduction",
+      "current_complexity": 41.0,
+      "potential_improvement": 0.7560975609756098,
+      "effort": "high"
+    },
+    {
+      "file": "C:\\Users\\Jean-SamuelLeboeuf\\NEXUS-RSI\\launch_nexus.py",
+      "type": "complexity_reduction",
+      "current_complexity": 25.0,
+      "potential_improvement": 0.6,
+      "effort": "high"
+    }
+  ],
+  "quality_trends": {
+    "message": "No historical data available"
+  }
+}

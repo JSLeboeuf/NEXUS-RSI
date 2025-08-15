@@ -1,0 +1,184 @@
+{
+  "agent_metadata": {
+    "name": "nexus-performance-optimizer",
+    "version": "1.0.0",
+    "model": "sonnet",
+    "specialization": "Performance optimization for RSI loops",
+    "description": "Advanced performance optimization agent for NEXUS-RSI system focusing on bottleneck detection and auto-improvement cycles"
+  },
+  "primary_focus": {
+    "benchmark_analysis": {
+      "modules": ["core", "agents", "scrapers", "workflows", "dashboard"],
+      "metrics": ["speed", "accuracy", "memory_usage", "cpu_usage", "response_time"],
+      "analysis_depth": "deep"
+    },
+    "bottleneck_detection": {
+      "auto_improvement_cycles": true,
+      "performance_regression": true,
+      "resource_contention": true,
+      "dependency_analysis": true
+    },
+    "resource_optimization": {
+      "memory_management": true,
+      "cpu_utilization": true,
+      "io_optimization": true,
+      "cache_optimization": true
+    },
+    "response_time_optimization": {
+      "ollama_llm_calls": true,
+      "database_queries": true,
+      "api_endpoints": true,
+      "async_operations": true
+    }
+  },
+  "capabilities": {
+    "python_async_profiling": {
+      "enabled": true,
+      "tools": ["cProfile", "py-spy", "memory_profiler", "asyncio_profiler"],
+      "sampling_rate": "1000Hz",
+      "max_profile_duration": 300
+    },
+    "sqlite_query_analysis": {
+      "enabled": true,
+      "query_plan_analysis": true,
+      "index_optimization": true,
+      "connection_pooling": true,
+      "explain_query_plan": true
+    },
+    "docker_optimization": {
+      "enabled": true,
+      "container_metrics": true,
+      "resource_limits": true,
+      "multi_stage_builds": true,
+      "layer_optimization": true
+    },
+    "llm_inference_optimization": {
+      "enabled": true,
+      "batch_processing": true,
+      "connection_pooling": true,
+      "response_caching": true,
+      "token_optimization": true
+    },
+    "caching_strategies": {
+      "enabled": true,
+      "redis_integration": true,
+      "memory_cache": true,
+      "disk_cache": true,
+      "distributed_cache": true
+    }
+  },
+  "triggers": {
+    "performance_thresholds": {
+      "module_score_threshold": 0.8,
+      "response_time_threshold_ms": 500,
+      "memory_usage_threshold_percent": 80,
+      "cpu_usage_threshold_percent": 70
+    },
+    "monitoring_intervals": {
+      "real_time_monitoring": 10,
+      "deep_analysis": 300,
+      "trend_analysis": 3600,
+      "comprehensive_report": 86400
+    },
+    "alert_conditions": {
+      "performance_degradation": true,
+      "resource_exhaustion": true,
+      "system_instability": true,
+      "cascade_failures": true
+    }
+  },
+  "integration": {
+    "nexus_rsi": {
+      "metrics_database": {
+        "path": "nexus_metrics.db",
+        "connection_pool_size": 10,
+        "query_timeout": 30,
+        "retry_attempts": 3
+      },
+      "ollama_api": {
+        "monitoring": true,
+        "response_time_tracking": true,
+        "error_rate_monitoring": true,
+        "connection_pooling": true
+      },
+      "github_actions": {
+        "workflow_performance": true,
+        "build_time_optimization": true,
+        "resource_usage_tracking": true,
+        "failure_analysis": true
+      },
+      "auto_patcher": {
+        "integration_enabled": true,
+        "patch_generation": true,
+        "performance_validation": true,
+        "rollback_mechanism": true
+      }
+    }
+  },
+  "optimization_strategies": {
+    "async_optimization": {
+      "connection_pooling": true,
+      "batch_operations": true,
+      "concurrent_execution": true,
+      "queue_management": true
+    },
+    "memory_optimization": {
+      "garbage_collection_tuning": true,
+      "memory_pooling": true,
+      "lazy_loading": true,
+      "data_compression": true
+    },
+    "database_optimization": {
+      "query_optimization": true,
+      "index_creation": true,
+      "connection_pooling": true,
+      "prepared_statements": true
+    },
+    "caching_optimization": {
+      "multi_level_caching": true,
+      "cache_invalidation": true,
+      "cache_warming": true,
+      "cache_partitioning": true
+    }
+  },
+  "reporting": {
+    "performance_reports": {
+      "frequency": "daily",
+      "format": ["json", "html", "pdf"],
+      "metrics_included": ["all"],
+      "trend_analysis": true
+    },
+    "optimization_recommendations": {
+      "priority_scoring": true,
+      "impact_estimation": true,
+      "implementation_complexity": true,
+      "roi_calculation": true
+    },
+    "dashboard_integration": {
+      "real_time_metrics": true,
+      "performance_graphs": true,
+      "alert_notifications": true,
+      "historical_trends": true
+    }
+  },
+  "configuration": {
+    "agent_settings": {
+      "model_temperature": 0.3,
+      "max_tokens": 4000,
+      "context_window": 8192,
+      "timeout_seconds": 300
+    },
+    "performance_settings": {
+      "profiling_overhead_limit": 5,
+      "max_concurrent_analyses": 5,
+      "analysis_cache_size": "1GB",
+      "report_retention_days": 90
+    },
+    "safety_settings": {
+      "auto_patch_approval": false,
+      "critical_system_protection": true,
+      "rollback_validation": true,
+      "backup_before_changes": true
+    }
+  }
+}

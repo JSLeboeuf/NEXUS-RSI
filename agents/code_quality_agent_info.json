@@ -1,0 +1,21 @@
+{
+  "name": "nexus-code-quality",
+  "status": "initialized",
+  "timestamp": "2025-08-14T20:44:58.046588",
+  "version": "1.0.0",
+  "capabilities": [
+    "code_complexity_analysis",
+    "maintainability_assessment",
+    "technical_debt_quantification",
+    "test_coverage_analysis",
+    "refactoring_recommendations"
+  ],
+  "thresholds": {
+    "code_quality_score": 0.7,
+    "maintainability_index": 0.7,
+    "complexity_threshold": 10,
+    "duplication_threshold": 10,
+    "test_coverage_threshold": 80,
+    "technical_debt_ratio": 0.05
+  }
+}

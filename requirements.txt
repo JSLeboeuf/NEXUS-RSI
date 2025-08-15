@@ -27,3 +27,19 @@ rich>=13.9.4
 typer>=0.16.0
 watchdog>=6.0.0
 schedule>=1.2.2
+
+# Security Analysis Tools
+bandit[toml]>=1.7.5
+safety>=2.3.0
+pip-audit>=2.6.0
+semgrep>=1.45.0
+detect-secrets>=1.4.0
+cryptography>=41.0.0
+aiofiles>=23.2.1
+gitpython>=3.1.40
+psutil>=5.9.6
+packaging>=23.2
+jinja2>=3.1.2
+markdown>=3.5.1
+python-dateutil>=2.8.2
+click>=8.1.7
